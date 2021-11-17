@@ -12,29 +12,29 @@ package cuentabancaria;
 public class CuentaBancaria {
 
     private int id, balance;
-   
-    
-    public CuentaBancaria(int id, int balance){
-        
+
+    public CuentaBancaria(int id, int balance) {
         this.id = id;
         this.balance = balance;
-        
+
     }
-    
-    
-   public void Withdraw(int x) throws Exception{
-       
-       
-       
-      
-   }
-    
-   public void Deposit(int x){
-       
-       
-   }
-   
-   public int getBalance(){
-       return 0;
-   }
+
+    public void Withdraw(int x) throws Exception {
+
+        if ((this.balance - x) < -500) {
+
+            throw new Exception("No puedes retirar saldo");
+        }
+
+        this.balance -= x;
+    }
+
+    public void Deposit(int x) {
+
+        this.balance += x;
+    }
+
+    public int getBalance() {
+        return this.balance;
+    }
 }
